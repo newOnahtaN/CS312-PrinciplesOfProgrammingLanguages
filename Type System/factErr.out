@@ -1,0 +1,3 @@
+i number
+f number
+Type Error: n is referenced before being defined!

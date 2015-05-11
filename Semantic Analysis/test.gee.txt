@@ -1,0 +1,11 @@
+ans = b
+if a > b:
+   if a > c:
+       ans = a
+   else:
+       ans = b
+else:
+   if b < c:
+       ans = c
+max3 = ans
+

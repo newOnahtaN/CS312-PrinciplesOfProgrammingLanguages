@@ -1,0 +1,52 @@
+Program         ⇒  int  main () { Declarations Statements }
+Declarations    ⇒  Declaration
+Declarations    ⇒  Declarations Declaration
+Declaration     ⇒  Type  Identifier  ;
+Type            ⇒  int 
+Type            ⇒  bool 
+Type            ⇒  float
+Type            ⇒  char
+Statements      ⇒  Statement
+Statements      ⇒  Statements Statement
+Statement       ⇒  ; 
+Statement       ⇒  Block
+Statement       ⇒  Assignment
+Statement       ⇒  IfStatement
+Statement       ⇒  WhileStatement
+Block           ⇒  Statements
+Block           ⇒  
+Assignment      ⇒  Identifier = Expression ;
+IfStatement     ⇒  if ( Expression ) Statement else Statement 
+IfStatement     ⇒  if ( Expression ) Statement 
+WhileStatement  ⇒  while ( Expression ) Statement  
+Expression      ⇒  Conjunction || Conjunction 
+Expression      ⇒  Conjunction 
+Conjunction     ⇒  Equality && Equality 
+Conjunction     ⇒  Equality 
+Equality        ⇒  Relation EquOp Relation 
+Equality        ⇒  Relation 
+EquOp           ⇒  ==
+EquOp           ⇒  != 
+Relation        ⇒  Addition RelOp Addition 
+Relation        ⇒  Addition  
+RelOp           ⇒  < 
+RelOp           ⇒  <= 
+RelOp           ⇒  >  
+RelOp           ⇒  >= 
+Addition        ⇒  Term AddOp Term 
+Addition        ⇒  Term 
+AddOp           ⇒  -
+AddOp           ⇒  + 
+Term            ⇒  Factor MulOp Factor 
+Term            ⇒  Factor
+MulOp           ⇒  *
+MulOp           ⇒  /
+MulOp           ⇒  %
+Factor          ⇒  UnaryOp Primary
+Factor          ⇒  Primary
+UnaryOp         ⇒  !
+UnaryOp         ⇒  - 
+Primary         ⇒  Identifier
+Primary         ⇒  IntLit
+Primary         ⇒  FloatLit
+Primary         ⇒  ( Expression )

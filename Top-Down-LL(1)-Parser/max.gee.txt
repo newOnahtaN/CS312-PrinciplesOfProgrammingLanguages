@@ -1,0 +1,6 @@
+#  max program 
+
+m =  a
+if b > a:
+    m = b + 1
+r = m

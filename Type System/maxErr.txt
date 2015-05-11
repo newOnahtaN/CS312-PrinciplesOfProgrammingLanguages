@@ -1,0 +1,8 @@
+#  max program 
+a = 100
+b = 200
+m =  a
+w = b > a
+if w:
+    w = b + 1
+w = m

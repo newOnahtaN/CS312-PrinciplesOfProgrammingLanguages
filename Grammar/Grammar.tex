@@ -1,0 +1,53 @@
+\documentclass[a4paper,9pt]{extarticle}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage[linkcolor=Blue, urlcolor=Blue,colorlinks=true]{hyperref}
+\usepackage[usenames,dvipsnames]{xcolor}							% Fancy colors
+\usepackage{fullpage}
+\usepackage{enumitem}
+
+% Macros
+\newcommand{\ii}{\textup{i}}									% \textup{i} := \sqrt{-1}
+\newcommand{\bb}[1]{\mathbb{#1}}								% Blackboard boldface for R, C, N, Q
+
+\begin{document}
+
+\textbf{CSCI 312 - Grammar HW \hfill  Nathan C.~Owen} \\ \\
+\textbf{Gee Grammar}
+
+\begin{align*}
+Program &\longrightarrow Statements \\
+Statements &\longrightarrow \lbrace Statement\rbrace \\
+Statement &\longrightarrow Assignment~|~Loop~|~IfStatement~[ElseStatement]~|~Function\\
+Function &\longrightarrow Identifier~\textbf{(}~[Expression~\lbrace~,~Expression\rbrace~]~\textbf{)}~Eoln \\
+Assignment &\longrightarrow Identifier~=~Expression~Eoln~|~Identifier~=~Function~\\
+IfStatement &\longrightarrow if~Expression:~Eoln~Indent~Statements~Undent \\
+ElseStatement &\longrightarrow else:~Eoln~Indent~Statements~Undent\\
+Loop &\longrightarrow while~Expression:~Eoln~Indent~Statements~Undent \\
+\\
+Expression &\longrightarrow Conjunction~\lbrace~||~Conjunction~\rbrace\\
+Conjunction &\longrightarrow Equality~\lbrace~\&\&~Equality~\rbrace\\
+Equality &\longrightarrow Relation~[~EquOp~Relation~]\\
+EquOp &\longrightarrow~==~|~!=\\
+Relation &\longrightarrow Addition~[~RelOp~Addition~]\\
+RelOp &\longrightarrow~<~|~<=~|~>~|~>=\\
+Addition &\longrightarrow Term~\lbrace~AddOp~Term~\rbrace\\
+AddOp &\longrightarrow~+~|~-\\
+Term &\longrightarrow Factor~\lbrace~MulOp~Factor~\rbrace\\
+MulOp &\longrightarrow~*~|~/~|~\%\\
+Factor &\longrightarrow~[UnaryOp]~Primary\\
+UnaryOp &\longrightarrow~-~|~!\\
+Primary &\longrightarrow Identifier~[~\textbf{[}~Expression~\textbf{]}~]~|~Literal~|~\textbf{(}~Expression~\textbf{)}\\
+\\
+Identifier &\longrightarrow Letter~\lbrace~Letter~|~Digit~\rbrace\\
+Letter &\longrightarrow a~|~b~|~...~|~z~|~A~|~B~|~...~|~Z\\
+Digit &\longrightarrow 0~|~1~|~...~|~9\\
+Literal &\longrightarrow IntLiteral~|~StringLiteral~|~FloatLiteral~|~CharLiteral~|~BoolLiteral\\
+IntLiteral &\longrightarrow Digit~\lbrace~Digit~\rbrace\\
+StringLiteral &\longrightarrow ~"~ASCIIChar~\lbrace~ASCIIChar~\rbrace~"\\
+BoolLiteral &\longrightarrow true~|~false\\
+FloatLiteral &\longrightarrow IntLiteral~.~IntLiteral\\
+CharLiteral &\longrightarrow~'~ASCIIChar~'
+\end{align*}
+\\\\\\
+Only parenthesis, brackets, and braces in \textbf{bold} are not ENBF metasymbols. ASCIIChar is a nonterminal that refers to a single choice of any one of the ASCII characters, not listed here for sake of verbosity.
+\end{document}

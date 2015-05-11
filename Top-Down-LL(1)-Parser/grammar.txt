@@ -1,0 +1,46 @@
+# Gee grammar in Wirth-style BNF, fall 2009
+# adapted from Clite grammar, revised, Oct. 2 2008
+# last modified Sept 26 2013
+
+#  expression operators
+relation    = "==" | "!=" | "<" | "<=" | ">" | ">="
+
+#  expressions
+expression = andExpr { "or" andExpr }
+andExpr    = relationalExpr { "and" relationalExpr }
+relationalExpr = addExpr [ relation addExpr ]
+addExpr    = term { ("+" | "-") term }
+term       = factor { ("*" | "/") factor }
+factor     = number | string | ident |  "(" expression ")" 
+            
+# statements
+stmtList =  {  statement  }
+statement = ifStatement |  whileStatement  |  assign
+assign = ident "=" expression  eoln
+ifStatement = "if" expression block   [ "else" block ] 
+whileStatement = "while"  expression  block
+block = ":" eoln indent stmtList undent
+
+#  goal or start symbol
+script = stmtList
+
+
+Lexer conventions:
+Symbol          Represented as
+----------      --------------
+eoln            ";"
+indent          "@"
+undent          "~"
+
++               "+"
+...
+
+"while"         "while"
+"if"            "if"
+...
+
+ident           re.match(Lexer.identifier, tok)
+number          re.match(Lexer.number, tok)
++               match("+")
+while           match("while")
+

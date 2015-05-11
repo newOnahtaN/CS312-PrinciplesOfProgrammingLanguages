@@ -1,0 +1,7 @@
+n = 8
+i = 1
+f = i
+while i < n:
+    i = i + 1
+    f = f * i
+ans = f

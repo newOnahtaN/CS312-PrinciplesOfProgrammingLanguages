@@ -1,0 +1,25 @@
+1 	ans = b;
+2 	if a > b:;
+3 	@if a > c:;
+4 	@ans = a;
+5 	~else:;
+6 	@ans = b;
+7 	~~else:;
+8 	@if b < c:;
+9 	@ans = c;
+10 	~~max3 = ans;
+= ans b
+if > a b
+if > a c
+= ans a
+else
+= ans b
+endif
+else
+if < b c
+= ans c
+else
+endif
+endif
+= max3 ans
+
